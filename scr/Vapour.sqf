@@ -4,8 +4,8 @@ _plane = _this select 0;
 temp_tire = 0.0;
 buster = 0;
 sleep 0.01;
-AN225_BRAKE=Compile PreProcessFile ("\an225\scr\brake.sqf");
-AN225_BOOST=Compile PreProcessFile ("\an225\scr\booster.sqf");
+AN225_BRAKE=Compile PreProcessFile ("\Arma3_AN225\scr\brake.sqf");
+AN225_BOOST=Compile PreProcessFile ("\Arma3_AN225\scr\booster.sqf");
 if (player IN _plane) then
 {
 	moduleName_keyDownEHId3 = (findDisplay 46) displayAddEventHandler ["KeyDown", "_asm = _this call AN225_BRAKE"];
