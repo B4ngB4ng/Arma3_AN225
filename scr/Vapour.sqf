@@ -1,4 +1,4 @@
-#include "\wop_gui\data\Scripts\dikCodes.h"
+#include "\Arma3_AN225\Data\Scripts\dikCodes.h"
 private ["_plane","_alt","_a1", "_a2", "_a3", "_particle","_zloop"];
 _plane = _this select 0;
 temp_tire = 0.0;
