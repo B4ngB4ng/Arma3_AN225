@@ -1226,47 +1226,138 @@ class CfgVehicles
 		{
 			class Left
 			{
-				color[] = {0.8, 0.8, 1.0, 1.0};
-				ambient[] = {0.07, 0.07, 0.07, 1.0};
+				color[] = {7000,7500,10000,1};
+				ambient[] = {100,100,100,0};
 				position = "L svetlo";
 				direction = "konec L svetla";
 				hitpoint = "L svetlo";
 				selection = "L svetlo";
-				size = 0.5;
-				brightness = 1.0;
+				size = 1;
+				innerAngle = 20;
+				outerAngle = 60;
+				coneFadeCoef = 10;
+				intensity = 50;
+				useFlare = 1;
+				dayLight = 0;
+				FlareSize = 4;
+				brightness = 1;
+				class Attenuation
+				{
+					constant = 0;
+					hardlimitend = 250;
+					hardlimitstart = 200;
+					linear = 1;
+					quadratic = 0;
+					start = 0;
+				};
 			};
 			class Right
 			{
-				color[] = {0.8, 0.8, 1.0, 1.0};
-				ambient[] = {0.07, 0.07, 0.07, 1.0};
+				color[] = {7000,7500,10000,1};
+				ambient[] = {100,100,100,0};
 				position = "P svetlo";
 				direction = "konec P svetla";
 				hitpoint = "P svetlo";
 				selection = "P svetlo";
-				size = 0.5;
-				brightness = 1.0;
+				size = 1;
+				innerAngle = 20;
+				outerAngle = 60;
+				coneFadeCoef = 10;
+				intensity = 50;
+				useFlare = 1;
+				dayLight = 0;
+				FlareSize = 4;
+				brightness = 1;
+				class Attenuation
+				{
+					constant = 0;
+					hardlimitend = 250;
+					hardlimitstart = 200;
+					linear = 1;
+					quadratic = 0;
+					start = 0;
+				};
 			};
 			class Left2
 			{
-				color[] = {0.8, 0.8, 1.0, 1.0};
-				ambient[] = {0.07, 0.07, 0.07, 1.0};
-				position = "L svetlo2";
-				direction = "konec L svetla2";
-				hitpoint = "L svetlo2";
-				selection = "L svetlo2";
-				size = 0.5;
-				brightness = 1.0;
+				color[] = {7000,7500,10000,1};
+				ambient[] = {100,100,100,0};
+				position = "L_wing_light";
+				direction = "L_wing_light_dir";
+				hitpoint = "L_wing_light";
+				selection = "L_wing_light";
+				size = 1;
+				innerAngle = 20;
+				outerAngle = 60;
+				coneFadeCoef = 10;
+				intensity = 50;
+				useFlare = 1;
+				dayLight = 0;
+				FlareSize = 4;
+				brightness = 1;
+				class Attenuation
+				{
+					constant = 0;
+					hardlimitend = 250;
+					hardlimitstart = 200;
+					linear = 1;
+					quadratic = 0;
+					start = 0;
+				};
 			};
 			class Right2
 			{
-				color[] = {0.8, 0.8, 1.0, 1.0};
-				ambient[] = {0.07, 0.07, 0.07, 1.0};
-				position = "P svetlo2";
-				direction = "konec P svetla2";
-				hitpoint = "P svetlo2";
-				selection = "P svetlo2";
-				size = 0.5;
-				brightness = 1.0;
+				color[] = {7000,7500,10000,1};
+				ambient[] = {100,100,100,0};
+				position = "R_wing_light";
+				direction = "R_wing_light_dir";
+				hitpoint = "R_wing_light";
+				selection = "R_wing_light";
+				size = 1;
+				innerAngle = 20;
+				outerAngle = 60;
+				coneFadeCoef = 10;
+				intensity = 50;
+				useFlare = 1;
+				dayLight = 0;
+				FlareSize = 4;
+				brightness = 1;
+				class Attenuation
+				{
+					constant = 0;
+					hardlimitend = 250;
+					hardlimitstart = 200;
+					linear = 1;
+					quadratic = 0;
+					start = 0;
+				};
+			};
+			class Left3
+			{
+				color[] = {7000,7500,10000,1};
+				ambient[] = {100,100,100,0};
+				position = "M svetlo";
+				direction = "konec M svetla";
+				hitpoint = "M svetlo";
+				selection = "M svetlo";
+				size = 1;
+				innerAngle = 20;
+				outerAngle = 60;
+				coneFadeCoef = 10;
+				intensity = 50;
+				useFlare = 1;
+				dayLight = 0;
+				FlareSize = 4;
+				brightness = 1;
+				class Attenuation
+				{
+					constant = 0;
+					hardlimitend = 250;
+					hardlimitstart = 200;
+					linear = 1;
+					quadratic = 0;
+					start = 0;
+				};
 			};
 		};
 		
@@ -1313,6 +1404,14 @@ class CfgVehicles
 			   direction = "exhaust6_dir";
 			   effect = "ExhaustsEffectPlane";
 		   };
+		};
+		
+		class MFD				/// class for helmet mounted displays, is going to be documented separately
+		{
+			class AirplaneHUD
+			{
+				#include "cfgHUD.hpp"
+			};
 		};
 	};	
 	class Antonov225_2: Antonov225
