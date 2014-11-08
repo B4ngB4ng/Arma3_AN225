@@ -268,6 +268,7 @@ class CfgVehicles
 		class NewTurret;
 		class ViewPilot;
 	};
+	//class Plane_Fighter_03_base_F: Plane {};
 	class Antonov225: Plane
 	{
 		scope=public;
@@ -275,10 +276,12 @@ class CfgVehicles
 		faction="CIV_F";
 		mapSize = 100;
 		crew = "C_man_pilot_F";
+		supplyRadius=20;
+		getInRadius=20;
 
 		picture="\Arma3_AN225\an225spl";
 		icon="\Arma3_AN225\icon.paa";
-		wheelSteeringSensitivity = 12.5;
+		wheelSteeringSensitivity = 12.5; //12.5
 		side=TCivilian;
 		displayName="$STR_AN225_NAME1";
 		accuracy=0.20;
@@ -298,7 +301,7 @@ class CfgVehicles
 
 		armor=250;
 		cost=2000000;
-		transportSoldier=0;
+		transportSoldier=4;
 		//model="\Arma3_AN225\Antonov";
 		model="\Arma3_AN225\An_225";
 
@@ -311,22 +314,41 @@ class CfgVehicles
 		extCameraPosition[]={0,9,-75};  
 		type=VAir;
 		//threat[] VSoft, VArmor, VAir 
-		simulation="airplane";
+		
+		
 		threat[]={0.8, 0.8, 1.0};
         animated=1;
         hiddenSelections[]={"num"};
         transportFuel = 100000;
-		transportVehiclesCount = 3;
+		transportVehiclesCount = 15;
 		transportVehiclesMass = 45000;
-        getInRadius=1.5;
         vehicleClass = "Air";
-		driverAction="ManActShipDriver";
-		gunnerAction = "ManActShipDriver";
-		cargoAction[] = {"MH6_Cargo01", "MH6_Cargo02","MH6_Cargo01", "MH6_Cargo02"};
+		simulation = "airplane";
+		getoutaction="GetOutHigh";
+		getinaction="GetInHigh";
+		typicalCargo[] ={"C_man_pilot_F","C_man_pilot_F","C_man_pilot_F","C_man_pilot_F"};
+		transportMaxWeapons = 500; // ammo boxes
+		transportAmmo = 10000000; // bigship
+		transportRepair = 200000000; //repairtruck
+		transportMaxMagazines = 2000;
+		transportMaxBackpacks = 300;
+		cargoAction[] = {""};
+		cargoGetInAction[] = {"GetInHigh"};
+		cargoGetOutAction[] = {"GetOutHigh"};
+		driverAction="Plane_Fighter_03_pilot";
+		driverInAction="Plane_Fighter_03_pilot";
 		insideSoundCoef=0.15000;
 		hascommander=0;
 		hasGunner=1;
+		driverIsCommander = 1;
 		gearRetracting = true; 
+		//dustEffect = "HeliDust";
+		//waterEffect = "HeliWater";
+		hasDriver=1;
+		//hasTerminal=1;
+		IncommingMissleDetectionSystem=16;
+		LandigSpeed=200;
+		LockDetectionSystem=8;
 		
 		class Library {
 			libTextDesc = "$STR_MRIYA_DESCR";
@@ -340,10 +362,12 @@ class CfgVehicles
 		};
 		
 		class Turrets {
+
 			class MainTurret : NewTurret {
-				body = "";
-				gun = "";
+				body = "mainTurret";
+      			gun = "mainGun";
 				commanding = -1;
+				
 				proxyIndex = 1;
 				memoryPointsGetInDriver = "pos driver";
 				memoryPointsGetInDriverDir = "pos driver dir";
@@ -351,73 +375,89 @@ class CfgVehicles
 				magazines[]={};		
 				castGunnerShadow = true;
 				viewGunnerShadow = true;
-				gunnerAction = "ManActShipDriver";
-				gunnerInAction = "ManActShipDriver";
 				primaryGunner = 1;
+				gunnerName = "CoPilot";
+				proxyType= "CPGunner"
+				gunnerOpticsShowCursor = 1;
+				gunnerInAction = "Plane_Fighter_03_pilot";
+				gunnerAction = "Plane_Fighter_03_pilot";
+				getoutaction="GetOutHigh";
+				getinaction="GetInHigh";
 			};
 			
 			class Ing1 : MainTurret {
-				body = "";
-				gun = "";
+				gunnerName = "Ing1";
 				commanding = -1;
-				proxyIndex = 2;
+				proxyIndex = 1;
+				proxyType= "CPCargo";
 				memoryPointsGetInGunner = "pos gunner";
 				memoryPointsGetInGunnerDir = "pos gunner dir";
 				weapons[]={};
 				magazines[]={};		
 				castGunnerShadow = true;
 				viewGunnerShadow = true;
-				gunnerAction = "MH6_Cargo01";
-				gunnerInAction = "MH6_Cargo01";
 				primaryGunner = 0;
+				driverAction="Plane_Fighter_03_pilot";
+				gunnerAction = "Plane_Fighter_03_pilot";
+				getoutaction="GetOutHigh";
+				getinaction="GetInHigh";
 			};
 			class Ing2 : MainTurret {
-				body = "";
-				gun = "";
 				commanding = -1;
-				proxyIndex = 3;
+				proxyIndex = 2;
+				proxyType= "CPCargo";
+				gunnerName = "Ing2";
 				memoryPointsGetInGunner = "pos gunner";
 				memoryPointsGetInGunnerDir = "pos gunner dir";
 				weapons[]={};
 				magazines[]={};		
 				castGunnerShadow = true;
 				viewGunnerShadow = true;
-				gunnerAction = "MH6_Cargo02";
-				gunnerInAction = "MH6_Cargo02";
 				primaryGunner = 0;
+				driverAction="Plane_Fighter_03_pilot";
+				gunnerAction = "Plane_Fighter_03_pilot";
+				getoutaction="GetOutHigh";
+				getinaction="GetInHigh";
 			};
 			class Ing3 : MainTurret {
-				body = "";
-				gun = "";
+				gunnerName = "Ing3";
 				commanding = -1;
-				proxyIndex = 4;
+				proxyIndex = 3;
+				proxyType= "CPCargo";
 				memoryPointsGetInGunner = "pos gunner";
 				memoryPointsGetInGunnerDir = "pos gunner dir";
 				weapons[]={};
 				magazines[]={};		
 				castGunnerShadow = true;
 				viewGunnerShadow = true;
-				gunnerAction = "MH6_Cargo01";
-				gunnerInAction = "MH6_Cargo01";
 				primaryGunner = 0;
+				driverAction="Plane_Fighter_03_pilot";
+				gunnerAction = "Plane_Fighter_03_pilot";
+				getoutaction="GetOutHigh";
+				getinaction="GetInHigh";
 			};
 			class Ing4 : MainTurret {
-				body = "";
-				gun = "";
+				gunnerName = "Ing4";
 				commanding = -1;
-				proxyIndex = 5;
+				proxyIndex = 4;
+				proxyType= "CPCargo";
 				memoryPointsGetInGunner = "pos gunner";
 				memoryPointsGetInGunnerDir = "pos gunner dir";
 				weapons[]={};
 				magazines[]={};		
 				castGunnerShadow = true;
 				viewGunnerShadow = true;
-				gunnerAction = "MH6_Cargo02";
-				gunnerInAction = "MH6_Cargo02";
 				primaryGunner = 0;
+				driverAction="Plane_Fighter_03_pilot";
+				gunnerAction = "Plane_Fighter_03_pilot";
+				getoutaction="GetOutHigh";
+				getinaction="GetInHigh";
 			};
+			
 		};
 		
+			
+
 		class EventHandlers
 		{
 		 init = "_this execVM ""\Arma3_AN225\scr\Vapour.sqf"";_this execVM ""\Arma3_AN225\scr\gear_trigger.sqf"";";
