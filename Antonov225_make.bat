@@ -1,0 +1,1 @@
+"C:\Program Files\PBO Manager v.1.4 beta\PBOConsole.exe" -pack "P:\Arma3_AN225" "C:\Program Files (x86)\Steam\SteamApps\common\Arma 3\@Arma3_AN225\addons\Arma3_AN225.pbo"

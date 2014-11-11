@@ -1042,6 +1042,17 @@ class CfgVehicles
 				initPhase = 0;
 				animPeriod = 2;
 			};
+			class monitory {
+				source="rpm";
+				initPhase = 0;
+				animPeriod = 2;
+			};
+			class kompas1 {
+				source="speed";
+				initPhase = 0;
+				animPeriod = 2;
+			};
+			
 		};
 		
 		class UserActions
