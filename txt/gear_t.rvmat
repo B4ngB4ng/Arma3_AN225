@@ -8,7 +8,7 @@ PixelShaderID="Super";
 VertexShaderID="Super";
 class Stage1
 {
-	texture="an225\txt\gear_t_nohq.paa";
+	texture="Arma3_AN225\txt\gear_t_nohq.paa";
 	uvSource="tex";
 	class uvTransform
 	{
@@ -20,7 +20,7 @@ class Stage1
 };
 class Stage2
 {
-	texture="an225\txt\metair1_detail.paa";
+	texture="Arma3_AN225\txt\metair1_detail.paa";
 	uvSource="tex";
 	class uvTransform
 	{
@@ -56,7 +56,7 @@ class Stage4
 };
 class Stage5
 {
-	texture="an225\txt\gear_t_smdi.paa";
+	texture="Arma3_AN225\txt\gear_t_smdi.paa";
 	uvSource="tex";
 	class uvTransform
 	{
@@ -73,6 +73,6 @@ class Stage6
 };
 class Stage7
 {
-	texture="an225\env_co.paa";
+	texture="Arma3_AN225\env_co.paa";
 	uvSource="none";
 };
